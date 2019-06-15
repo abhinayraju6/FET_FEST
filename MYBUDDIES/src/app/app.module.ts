@@ -15,7 +15,7 @@ import { EventsComponent } from "./components/events/events.component";
 import { BlogsComponent } from "./components/blogs/blogs.component";
 import { ChatroomComponent } from "./components/chatroom/chatroom.component";
 import { TeamComponent } from "./components/team/team.component";
-import { CalendarComponent } from "./components/calendar/calendar.component";
+import { CalenderComponent } from "./components/calender/calender.component";
 import { LoginComponent } from "./components/login/login.component";
 import {SignupComponent} from "./components/signup/signup.component";
 
@@ -31,7 +31,7 @@ import { AppComponent } from './app.component';
     BlogsComponent,
     ChatroomComponent,
     TeamComponent,
-    CalendarComponent,
+    CalenderComponent,
     SignupComponent,
     LoginComponent
   ],
@@ -42,7 +42,7 @@ import { AppComponent } from './app.component';
     MatToolbarModule, MatRadioModule, MatSelectModule, MatButtonToggleModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, 
     MatCardModule,
     BrowserAnimationsModule,
-    CalendarComponent,
+    CalenderComponent,
     FormsModule,
     appRoutes,
     RouterModule
