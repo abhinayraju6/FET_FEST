@@ -1,0 +1,78 @@
+
+  .example-fill-remaining-space {
+    /* This fills the remaining space, by using flexbox. 
+       Every toolbar row uses a flexbox row layout. */
+    flex: 1 1 auto;
+  }
+
+  .mytab{
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 3;
+    margin: 0;
+    background-color: black;
+
+}
+  
+.example-container {
+    position: fixed;
+    margin-top: 56px;
+    margin-bottom: 60px; 
+    left: 0;
+    right: 0;
+    height:100%;
+  background-color: #fff;
+  }
+  .buddies-title{
+    font-weight: 500;
+    font-size: 1.3em;
+    letter-spacing: -0.03em;
+    float: left;
+    line-height: 50px;
+  }
+  .buddies-title-orange{
+    color: #F6891F;
+  }
+
+  .buddies-title-grey{
+    color: rgb(242, 242, 242);
+  }
+
+
+  .example-sidenav {
+    position: fixed;
+    top: 64px!important;
+    bottom: 0;
+    left:0;
+    padding: 0;
+    background-color: rgb(242, 242, 242);
+    width:auto;
+
+  }
+  .example-header-image {
+  background-image: url(/assets/teamwork.png);
+  background-size: absolute;
+  background-repeat: no-repeat;
+
+}
+.angular-logo{
+  padding: 2;
+}
+.text{
+  font-size: 100%; 
+}
+.team{
+ /* size: auto;  */
+  width:75%;
+  height:75%;
+  padding-top: 2;
+}
+.mat-sidenav-content{
+    /* margin-top: 64px !important;  */
+   /* margin-left: 100px !important; */
+  color: black;
+}
+
+

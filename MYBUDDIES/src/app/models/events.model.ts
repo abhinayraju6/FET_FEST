@@ -1,10 +1,10 @@
-export class Events {
-    teamName:string;//PK
-    eventId: string;
-    userName:string;
-    userEmail: string;//FK
-    title:string;
-    content:string;
-    required:string[];
-    optional:string[];
+export class Event {
+    teamID:string;//PK
+    creationtime: string;
+    createdby:string;
+    content: string;//FK
+    title:string;   
+    required:string;
+    optional:string;
+    actions:string;
 }

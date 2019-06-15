@@ -1,9 +1,12 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule } from '@angular/common/http';
-import { MatToolbarModule, MatRadioModule, MatSelectModule, MatButtonToggleModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatCardModule } from '@angular/material';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppRoutingModule } from './app-routing.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatToolbarModule, MatRadioModule, MatSelectModule, MatButtonToggleModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatCardModule } from '@angular/material';
+import { LayoutModule } from '@angular/cdk/layout';
+import { AppComponent } from './app.component';
 import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { appRoutes } from './routes';
@@ -19,9 +22,10 @@ import { CalenderComponent } from "./components/calender/calender.component";
 import { LoginComponent } from "./components/login/login.component";
 import {SignupComponent} from "./components/signup/signup.component";
 
-
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+import { BlogService } from './services/blog.service';
+import {TeamService } from './services/team.service';
+import {EventService } from './services/events.service';
+import{LocalStorageService} from './services/localstorage.service';
 
 @NgModule({
   declarations: [
@@ -34,21 +38,41 @@ import { AppComponent } from './app.component';
     CalenderComponent,
     SignupComponent,
     LoginComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
-    MatToolbarModule, MatRadioModule, MatSelectModule, MatButtonToggleModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, 
-    MatCardModule,
-    BrowserAnimationsModule,
-    CalenderComponent,
+    RouterModule.forRoot(appRoutes),
     FormsModule,
-    appRoutes,
-    RouterModule
-
+    BrowserAnimationsModule,
+    HttpClientModule,
+    LayoutModule,
+    MatToolbarModule,
+    MatButtonModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatRadioModule,
+    MatButtonToggleModule,
+    MatListModule,
+    MatSelectModule,
+    BrowserModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+    MatButtonModule,
+    MatMenuModule,
+    MatCardModule,
+    MatToolbarModule,
+    MatIconModule,
+    MatSidenavModule,
+    MatListModule,
   ],
-  providers: [],
+  providers: [
+    BlogService,
+    TeamService,
+    EventService,
+    LocalStorageService
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

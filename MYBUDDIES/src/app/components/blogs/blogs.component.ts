@@ -18,8 +18,9 @@ export class BlogsComponent implements OnInit {
   blog: Blog = new Blog();
 
   constructor(private blogService: BlogService) {
-    this.currentUserID = "";//JSON.parse(localStorage.getItem('currentUser'));
-    this.currentTeamID = "5d03acccbb934755c46ac985";//JSON.parse(localStorage.getItem('currentTeamId'));
+    this.currentUserID = "";
+    this.currentTeamID = 11;
+   
   }
 
   ngOnInit() {
@@ -32,7 +33,8 @@ export class BlogsComponent implements OnInit {
   }
 
   createBlog() {
-    this.blog.author = this.currentUserID;
+    
+    this.blog.author="Bikshapathi";
     this.blog.creationDate = new Date().toDateString();
     this.blog.teamID = this.currentTeamID;
 

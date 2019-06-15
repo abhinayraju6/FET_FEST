@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { EventService } from '../../services/events.service';
-import { Events } from '../../models/events.model';
+import { Event } from '../../models/events.model';
 
 @Component({
   selector: 'events',
@@ -9,57 +9,46 @@ import { Events } from '../../models/events.model';
   styleUrls: ['./events.component.css']
 })
 export class EventsComponent implements OnInit {
-  //public events: any[] = [];
+
   currentUserID = null;
   currentTeamID = null;
-  events: Events[] = [];
-  event: Events = new Events();
 
-
-  // private event: any = {
-  //   title: "Sprint Retero I136 ",
-  //   author: "Sagar Uday Kulkarni",
-  //   creationDateTime: "11-06-2019 06:11 PM",
-  //   audience: {
-  //     required: ["Srikanth Ramaynam", "Mahesh Egamwar", "Bikshapathi Bemgani"],
-  //     optional: ["Sagar Uday Kulkarni", "Sanan Kumar"]
-  //   },
-  //   content: `"Meeting sprint retero spection I136": The India Meteorological Department (IMD) on Tuesday said the speed of “Vayu” had increased to 17 km per hour and was located in the Arabian Sea, about 350 km west-northwest of Goa, 410 km south-southwest of Mumbai and 530 km nearly south of Veraval (Gujarat).
-
-  //   “It is very likely to move nearly northwards and cross Gujarat coast between Porbandar and Mahuva around Veraval and the Diu region as a severe cyclonic storm, with a wind speed of 110-120 kmph gusting to 135 kmph during early morning of June 13,” the IMD said.
-    
-  //   The cyclone will make a landfall near Veraval in Gir Somnath district on June 13 but it will be preceded by heavy rainfall in isolated places.`,
-  //   actions: ["Will Join", "Cann't Join", "Tentative"]
-  // }
+  events: Event[] = [];
+  event: Event = new Event();
 
   constructor(private eventService: EventService) {
     this.currentUserID = JSON.parse(localStorage.getItem('currentUser'));
-    this.currentTeamID = JSON.parse(localStorage.getItem('currentTeamId'));
+    this.currentTeamID = 11;
   }
 
   public isShowAddEventPopUp = false;
   public teammembers: any = [];
 
-  
+
   ngOnInit() {
-    // for (let i = 0; i < 10; i++) {
-    //   this.events.push(this.event);
-    // }
     this.getUniqueTeamMembers(this.currentTeamID);
   }
+
+  getUniqueTeamMembers(_teamID: string) {
+    this.eventService.getAllByEvents(_teamID).subscribe(events => { this.events = events; });
+    
+    console.log("All events for team " + this.currentTeamID + " fetched succesfully.");
+  }
+
   showAddEventPopUp(flag: boolean) {
     this.isShowAddEventPopUp = flag;
   }
-  getUniqueTeamMembers(_teamID: string) {
-   // this.teammembers = ["Srikanth Ramaynam", "Mahesh Egamwar", "Bikshapathi Bemgani", "Sagar Uday Kulkarni", "Sanan Kumar","Akhila Potluri"];
-   this.eventService.getAllByEvents(_teamID).subscribe(events => { this.events = events; });
-   console.log("All Events for team " + this.currentTeamID + " fetched succesfully.");
-  }
+  
 
   createForEvent() {
-    this.event.title = this.currentUserID;
-    // this.event.creationDate = new Date().toDateString();
-    // this.event.teamID = this.currentTeamID;
+    
+    this.event.teamID = this.currentTeamID;
+
+    this.event.creationtime=new Date().toLocaleString();
+
+    this.event.required = "Srikanth Ramaynam, Bikshapathi Bemgani, Akhila Potluri";
+    this.event.optional = "Sagar Uday Kulkarni, Sanan Kumar";
+    this.event.actions="Will Join,Can't Join,Tentative";
 
     this.eventService.createForEvent(this.event)
       .subscribe(
@@ -72,10 +61,14 @@ export class EventsComponent implements OnInit {
         });
   }
 
+  postEventButtonClicked() {
+    this.createForEvent();
+  }
+
   applyBadgeColor(type: string) {
     switch (type) {
       case "Will Join": return "event-action label-success";
-      case "Cann't Join": return "event-action label-danger";
+      case "Can't Join": return "event-action label-danger";
       case "Tentative": return "event-action label-warning";
     }
   }

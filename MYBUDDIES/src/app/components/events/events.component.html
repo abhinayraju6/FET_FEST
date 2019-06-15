@@ -1,16 +1,17 @@
 <div class="event-actionbar">
     <img class="add-event-icon" src="./assets/pencil.png" (click)="showAddEventPopUp(true)">
+    <p class="title">EVENTS</p>
 </div>
 <div *ngIf="isShowAddEventPopUp" class="add-event">
-    <form>
+    <form (ngSubmit)="postEventButtonClicked()">
         <label for="title">TITLE</label>
-        <input type="text" id="title" name="title" placeholder="event title">
+        <input type="text" id="title" name="title" placeholder="event title" [(ngModel)]="event.title">
 
         <label for="content">CONTENT</label>
-        <textarea rows="10" cols="100" id="content" name="content" placeholder="event content"></textarea>
+        <textarea rows="10" cols="100" id="content" name="content" placeholder="event content" [(ngModel)]="event.content"></textarea>
 
         <label for="content">SHEDULE DATE & TIME</label>
-        <input type="datetime-local" name="bdaytime">
+        <input type="datetime-local" name="bdaytime" [(ngModel)]="event.creationtime">
 
         <label for="content">REQUIRED</label>
         <div class="multiselect">
@@ -38,7 +39,8 @@
             </div>
         </div>
 
-        <input type="submit" value="POST">
+        
+        <button type="button" (click)=postEventButtonClicked()>POST</button>
         <button type="button" (click)=showAddEventPopUp(false)>CANCEL</button>
     </form>
 </div>
@@ -50,13 +52,13 @@
                 <div class='event-header'>
                     <div class='event-title'>{{event.title}}</div>
                     <div class='event-audience-required' style="font-size:0.75em;margin-top:15px;">
-                        {{event.audience.required.join(", ")}}</div>
-                    <div class='event-audience-optional' style="font-size:0.5em">{{event.audience.optional.join(", ")}}
+                        {{event.required.join(", ")}}</div>
+                    <div class='event-audience-optional' style="font-size:0.5em">{{event.optional.join(", ")}}
                     </div>
                 </div>
                 <div class='event-details'>
-                    <div class='event-author'>{{event.author}}</div>
-                    <div class='event-creation-date'>{{event.creationDateTime}}</div>
+                    <div class='event-author'>{{event.createdby}}</div>
+                    <div class='event-creation-date'>{{event.creationtime}}</div>
                 </div>
             </div>
             <div class='event-content-control'>

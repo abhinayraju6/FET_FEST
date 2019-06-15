@@ -2,17 +2,17 @@ import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
 import { appConfig } from '../app.config';
-import { Events } from '../models/events.model';
+import { Event } from '../models/events.model';
 
 @Injectable()
 export class EventService {
     constructor(private http: HttpClient) { }
 
     getAllByEvents(teamID: string) {
-        return this.http.get<Events[]>(appConfig.apiUrl + '/event/' + teamID);
+        return this.http.get<Event[]>(appConfig.apiUrl + '/event/' + teamID);
     }
 
-    createForEvent(event: Events) {
+    createForEvent(event: Event) {
         return this.http.post(appConfig.apiUrl + '/event/create', event);
     }
 }

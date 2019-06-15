@@ -1,4 +1,12 @@
-.container{max-width:1170px; margin:auto;}
+.container{max-width:95%; margin:auto;max-height:100px;}
+.chatroom-actionbar {
+  background-color: rgb(236, 236, 236);
+  width:auto;
+  height: 6%;
+  position: -webkit-sticky;
+position: sticky;
+top: 0;
+}
 img{ max-width:100%;}
 .inbox_people {
   background: #f8f8f8 none repeat scroll 0 0;
@@ -10,6 +18,7 @@ img{ max-width:100%;}
   border: 1px solid #c4c4c4;
   clear: both;
   overflow: hidden;
+  display :-webkit-inline-flex;
 }
 .top_spac{ margin: 20px 0 0;}
 
@@ -18,7 +27,7 @@ img{ max-width:100%;}
 .srch_bar {
   display: inline-block;
   text-align: right;
-  width: 60%; padding:2px;
+  width: 60%; padding:10px;
 }
 .headind_srch{ padding:10px 29px 10px 20px; overflow:hidden; border-bottom:1px solid #c4c4c4;}
 
@@ -128,8 +137,18 @@ img{ max-width:100%;}
   top: 11px;
   width: 33px;
 }
-.messaging { padding: 0 0 50px 0;}
+/* .messaging { padding: 0 0 50px 0;} */
 .msg_history {
   height: 516px;
   overflow-y: auto;
+}
+
+.title{
+  font-weight: 500;
+  font-size: 1.3em;
+  letter-spacing: -0.03em;
+  color: #F6891F;
+  margin-left: 10px;
+  display: -webkit-inline-box;
+  font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif
 }

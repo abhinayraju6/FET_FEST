@@ -38,12 +38,7 @@ export class CalenderComponent implements OnInit {
         let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
         let months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 
-        /* flip count arrangement */
-        /** month arrangement
-         * m + flipcount > 11 => yfactor := parseInt((m + flipcount - 11) /11), mfactor := flipcount % 11 
-         * m + flipcount < 0 => yfactor := parseInt((m + flipcount - 11) /11), mfactor := flipcount % 11
-         * for detail information on above logic test with different values of m and flipcount;
-         */
+       
 
         let base = months.length,
             yfactor = parseInt((((this.flipCount < 0 ? this.flipCount - m - 1 : this.flipCount + m)) / base).toString()),
@@ -170,6 +165,6 @@ export class CalenderComponent implements OnInit {
                 this.applyEffect(dir);
             }, 5); 
         }
-        //this.monthLabel = label;
+        
     }
 }

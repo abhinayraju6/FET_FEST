@@ -221,3 +221,12 @@
           #checkboxes label:hover {
             background-color: #1e90ff !important;
           }
+          .title{
+            font-weight: 500;
+            font-size: 1.3em;
+            letter-spacing: -0.03em;
+            color: #F6891F;
+            margin-left: 10px;
+            display: -webkit-inline-box;
+            font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif
+          }
