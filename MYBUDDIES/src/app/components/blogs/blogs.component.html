@@ -1,3 +1,30 @@
-<p>
-  blogs works!
-</p>
+<div class="blogs-actionbar">
+    <img class="add-blog-icon" src="./assets/pencil.png" (click)="showAddPostPopUp(true)">
+</div>
+<div *ngIf="isShowAddPostPopUp" class="add-blog">
+    <form (ngSubmit)="postBlogButtonClicked()"  >
+        
+        <label for="title">TITLE</label>
+        <input type="text" id="title" name="title" placeholder="Blog title" [(ngModel)]="blog.title">
+        <label for="content">CONTENT</label>
+        <textarea rows="10" cols="100" id="content" name="content" placeholder="Blog content" [(ngModel)]="blog.content"></textarea>
+        <button type="button" (click)=postBlogButtonClicked()>POST</button>
+        <button type="button" (click)=showAddPostPopUp(false)>CANCEL</button>
+    </form>
+</div>
+<div *ngFor="let blog of blogs">
+    <div class="card">
+        <div class="container">
+            <h2 style="background-color:rgba(255,152,0,.05); color: #444;">
+                <b>{{blog.title}}</b></h2>
+            <p>Author:{{blog.author}} {{blog.creationDate}}</p>
+            <p>{{blog.content}}</p>
+            <div>
+                <p><img src="./assets/thumbs-up.png" width="20px" height="20px" align="middle">{{blog.like}}
+                    &nbsp;&nbsp;
+                    <img src="./assets/thumb-down.png" width="20px" height="20px" align="middle">{{blog.dislike}}
+                </p>
+            </div>
+        </div>
+    </div>
+</div>

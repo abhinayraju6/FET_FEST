@@ -4,24 +4,36 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule, MatRadioModule, MatSelectModule, MatButtonToggleModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, MatCardModule } from '@angular/material';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { HTTP_INTERCEPTORS } from '@angular/common/http';
+import { RouterModule } from '@angular/router';
+import { appRoutes } from './routes';
+import { FormsModule } from '@angular/forms';
+
+
+import { DashboardComponent } from "./components/dashboard/dashboard.component";
+import { EventsComponent } from "./components/events/events.component";
+import { BlogsComponent } from "./components/blogs/blogs.component";
+import { ChatroomComponent } from "./components/chatroom/chatroom.component";
+import { TeamComponent } from "./components/team/team.component";
+import { CalendarComponent } from "./components/calendar/calendar.component";
+import { LoginComponent } from "./components/login/login.component";
+import {SignupComponent} from "./components/signup/signup.component";
+
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BlogsComponent } from './components/blogs/blogs.component';
-import { CalendarComponent } from './components/calendar/calendar.component';
-import { ChatroomComponent } from './components/chatroom/chatroom.component';
-import { EventsComponent } from './components/events/events.component';
-import { DashboardComponent } from './components/dashboard/dashboard.component';
-import { TeamComponent } from './components/team/team.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    BlogsComponent,
-    CalendarComponent,
-    ChatroomComponent,
-    EventsComponent,
     DashboardComponent,
-    TeamComponent
+    EventsComponent,
+    BlogsComponent,
+    ChatroomComponent,
+    TeamComponent,
+    CalendarComponent,
+    SignupComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -29,6 +41,12 @@ import { TeamComponent } from './components/team/team.component';
     HttpClientModule,
     MatToolbarModule, MatRadioModule, MatSelectModule, MatButtonToggleModule, MatButtonModule, MatSidenavModule, MatIconModule, MatListModule, MatMenuModule, 
     MatCardModule,
+    BrowserAnimationsModule,
+    CalendarComponent,
+    FormsModule,
+    appRoutes,
+    RouterModule
+
   ],
   providers: [],
   bootstrap: [AppComponent]
