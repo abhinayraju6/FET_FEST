@@ -6,10 +6,22 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { BlogsComponent } from './components/blogs/blogs.component';
+import { CalendarComponent } from './components/calendar/calendar.component';
+import { ChatroomComponent } from './components/chatroom/chatroom.component';
+import { EventsComponent } from './components/events/events.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { TeamComponent } from './components/team/team.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    BlogsComponent,
+    CalendarComponent,
+    ChatroomComponent,
+    EventsComponent,
+    DashboardComponent,
+    TeamComponent
   ],
   imports: [
     BrowserModule,
