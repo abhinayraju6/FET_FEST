@@ -1,0 +1,203 @@
+#cal-comp{
+    width: 64%;  
+    max-height: 472px;
+    min-width: 800px;
+    padding: 3px 25px 0;
+    position: relative;
+    top: 25px;
+    overflow: hidden;
+    margin:auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cal-comp-page-cntnr{
+ width:825px;
+ height: 495px;
+ z-index: 1;
+}
+
+.cal-comp-cntnr{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+    min-height: 450px;
+    box-shadow: lightgray 0px 0px 11px 0px;
+}
+
+.cal-comp-page{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    height: 470px;
+    box-shadow: #ddd 0px 0px 11px 0px;
+    overflow: hidden;
+    background-color: white;
+}
+
+.cal-comp-page-transit-param{    
+    transition: height 1.0s;
+}
+
+.cal-comp-page-rear{
+    z-index: -1;
+}
+
+.cal-comp-day{
+    display: flex;
+    flex-direction: column;
+    padding: 5px;
+    margin: 10px;
+}
+
+.cal-comp-date-event-cntnr{
+    height: 55px;   
+    width: 85px;
+}
+
+.cal-comp-daytitle{
+    font-size: 1.5em;
+    color: crimson;
+    font-weight: bold;
+    text-align: center;
+    height: 55px;
+}
+
+.cal-comp-date{
+    font-size: 1.1em;
+    color: black;
+    font-weight: bold;
+    font-weight: bold;
+    text-align: center;
+}
+
+.comp-event-available{
+    cursor: pointer;
+}
+
+.cal-comp-events{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.cal-comp-events .cal-comp-event-tooltip{
+ visibility: hidden;
+ width: 240px;
+ height: 150px;
+ background-color: white;
+ box-shadow: #afadad 0px 0px 11px 0px;
+ color: black;
+ text-align: center;
+ border-radius: 5px;
+ padding: 5px 0;
+
+ position: fixed;
+ margin-left: 150px;
+ z-index: 1;
+}
+
+.cal-comp-events .cal-comp-event-tooltip::after{
+    content: " ";
+    position: absolute;
+    top:50%;
+    right:100%;
+    margin-top: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent white transparent transparent;
+    /* box-shadow: #e0e0e0 1px 1px 1px 1px; */
+}
+
+.comp-event-available:hover .cal-comp-events .cal-comp-event-tooltip{
+    visibility: visible;
+}
+
+.cal-month-lbl{
+    align-self: center;
+    position: relative;
+    top: -28px;
+}
+
+.cal-flip-cntrl{
+    display: flex;
+    justify-content: space-evenly;
+    position: absolute;
+    width: 100%;
+    bottom: 10px;
+    z-index: 3;
+}
+
+.cal-flip-cntrl button{
+    width: 36px;
+    height: 36px;
+    outline: none;
+    border: solid 1px #ddd;
+    border-radius: 20px;    
+    background-color: white;
+    background-image: url('../../../assets/caretdown24.png');
+    background-repeat: no-repeat;
+    background-position: center;
+    box-shadow: lightgrey 0px 0px 5px 0px;
+}
+
+.cal-flip-cntrl #cal-flip-up{
+    transform: rotate(-180deg)
+}
+
+/* calender effects */
+.cal-top-punch{
+    display: flex;
+    height: 20px;
+    justify-content: space-evenly;
+    position: relative;
+    top: 28px;
+    width: 75%;
+}
+
+.cal-punch-hole{
+    width:10px;
+    height: 10px;
+    border: solid 2px #a2a1a1;
+    border-radius: 7px;
+    box-shadow: rgb(130, 130, 130) 0px 0px 3px 0px;
+}
+
+#cal-page-shutter{
+    height: 18px;
+    box-shadow: inset #949090 0px -5px 5px 0px;
+    border-radius: 0px 0px 5px 0px;
+    background-color: #f2f2f2;
+    padding: 0 1px;
+    min-width: 825px;
+    max-width: 825px;
+    top: 53px;
+    position: relative;
+    visibility: hidden;
+    z-index: 2;
+    left:-5px;
+    /* transform:rotate(10deg); */
+}
+
+.page-flip-up{
+    height: 0px !important;
+}
+
+.shutter-transit-param{
+    transition: transform 1s, left 0.35s, height 0.15s, opacity 0.125s, visibility 0.25s !important;
+    
+}
+
+.shutter-up{
+    transform: translateY(-530px)!important;
+    height: 28px !important;
+    left: 0 !important; 
+    visibility: visible !important;
+    opacity: 1 !important;
+}
+
+.shutter-transit-down{
+    transition: transform 1s, left 0.35s, height 1s, opacity 1s, visibility 1s !important;
+}

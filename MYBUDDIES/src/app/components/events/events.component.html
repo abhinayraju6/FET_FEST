@@ -1,3 +1,72 @@
-<p>
-  events works!
-</p>
+<div class="event-actionbar">
+    <img class="add-event-icon" src="./assets/pencil.png" (click)="showAddEventPopUp(true)">
+</div>
+<div *ngIf="isShowAddEventPopUp" class="add-event">
+    <form>
+        <label for="title">TITLE</label>
+        <input type="text" id="title" name="title" placeholder="event title">
+
+        <label for="content">CONTENT</label>
+        <textarea rows="10" cols="100" id="content" name="content" placeholder="event content"></textarea>
+
+        <label for="content">SHEDULE DATE & TIME</label>
+        <input type="datetime-local" name="bdaytime">
+
+        <label for="content">REQUIRED</label>
+        <div class="multiselect">
+            <div class="selectBox" (click)="showCheckboxes()">
+                <select>
+                    <option>Select members</option>
+                </select>
+                <div class="overSelect"></div>
+            </div>
+            <div id="checkboxes">
+                <label *ngFor="let member of teammembers; let i = index"><input type="checkbox" id="i" />{{member}}</label>
+            </div>
+        </div>
+
+        <label for="content">OPTIONAL</label>
+        <div class="multiselect">
+            <div class="selectBox" (click)="showCheckboxesForOtional()">
+                <select>
+                    <option>Select members</option>
+                </select>
+                <div class="overSelect"></div>
+            </div>
+            <div id="checkboxesForOptional">
+                <label *ngFor="let member of teammembers; let i = index"><input type="checkbox" id="i" />{{member}}</label>
+            </div>
+        </div>
+
+        <input type="submit" value="POST">
+        <button type="button" (click)=showAddEventPopUp(false)>CANCEL</button>
+    </form>
+</div>
+
+<div *ngFor="let event of events">
+    <div class="event-container">
+        <div class="events">
+            <div class='event-meta'>
+                <div class='event-header'>
+                    <div class='event-title'>{{event.title}}</div>
+                    <div class='event-audience-required' style="font-size:0.75em;margin-top:15px;">
+                        {{event.audience.required.join(", ")}}</div>
+                    <div class='event-audience-optional' style="font-size:0.5em">{{event.audience.optional.join(", ")}}
+                    </div>
+                </div>
+                <div class='event-details'>
+                    <div class='event-author'>{{event.author}}</div>
+                    <div class='event-creation-date'>{{event.creationDateTime}}</div>
+                </div>
+            </div>
+            <div class='event-content-control'>
+                <div class='event-content'>{{event.content}}</div>
+            </div>
+            <div class='event-actions-required'>
+                <div *ngFor="let action of event.actions">
+                    <div [className]='applyBadgeColor(action)'>{{action}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

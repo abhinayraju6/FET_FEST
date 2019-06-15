@@ -1,3 +1,64 @@
-<p>
-  signup works!
-</p>
+<div class="mycontainer">
+  
+
+  
+    <!-- <div class="col s8 offset-s2"> -->
+      <!-- <div class="card"> -->
+        <!-- <div class="sm-jumbotron center-align">
+          <h2>User Registration</h2>
+        </div> -->
+        <h1>REGISTRATION FORM</h1>       
+        <form class="col s12" #userRegistrationForm="ngForm" (ngSubmit)="OnSubmit(userRegistrationForm)" >
+          <div class="row" id="imgdiv">
+            <div class="input-field col s6" [class.has-error]="UserName.invalid && UserName.touched">
+                <label data-error="Required field!">&nbsp;&nbsp;UserName</label>
+              <input id="box1" class="validate" type="text" name="UserName" #UserName="ngModel" [(ngModel)]="user.UserName" pattern="^[a-zA-Z0-9][ a-zA-Z0-9]*$" required>
+              
+              <span id="error" class="help-block" *ngIf="UserName.errors?.required && UserName.touched"> UserName Required</span>
+              <span id="error" class="help-block" *ngIf="UserName.errors?.pattern && UserName.touched">Username Should Start With a Character and should match the pattern '^[a-zA-Z0-9][ a-zA-Z0-9]*$';</span>
+            </div>
+            <div class="input-field col s6" [class.has-error]="Password.invalid && Password.touched">
+                <label [attr.data-error]="Password.errors!=null?(Password.errors.required?'Required field!':'Minimum 3 characters needed'):''">&nbsp;&nbsp;Password</label>
+              <input id="box2" class="validate" type="password" name="Password" #Password="ngModel" [(ngModel)]="user.Password"  pattern="^[0-9a-zA-Z][0-9a-zA-Z@]*$" required  minlength="3">
+              
+              <span id="error" class="help-block" *ngIf="Password.errors?.required && Password.touched"> Password Required</span>
+              <span id="error" class="help-block" *ngIf="Password.errors?.pattern && Password.touched">Password should of minimum length 3, and should match the pattern [0-9a-zA-Z][0-9a-zA-Z@]*$</span>
+            </div>
+          </div>
+         
+          <div class="row">
+            <div class="input-field col s12" [class.has-error]="Email.invalid && Email.touched">
+                <label data-error="Invalid email!">&nbsp;&nbsp;Email</label>
+              <input id="box3" class="validate" type="text" name="Email" #Email="ngModel" [(ngModel)]="user.Email" [pattern]="emailPattern" required><!--(change)="emailexist($event.target.value)"-->
+              
+              <span id="error" class="help-block" *ngIf="Email.errors?.required && Email.touched"> Email Required</span>
+              <span id="error" class="help-block" *ngIf="Email.errors?.pattern && Email.touched">Invalid mailid and should match the pattern '^[a-zA-Z][ a-zA-Z]*$';</span>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field col s6" [class.has-error]="FirstName.invalid && FirstName.touched">
+                <label>&nbsp;&nbsp;First Name</label>
+              <input id="box4" type="text" name="FirstName" #FirstName="ngModel" [(ngModel)]="user.FirstName" pattern="^[a-zA-Z][ a-zA-Z]*$" required>
+              
+              <span id="error" class="help-block" *ngIf="FirstName.errors?.required && FirstName.touched"> Firstname Required</span>
+              <span id="error" class="help-block" *ngIf="FirstName.errors?.pattern && FirstName.touched">Invalid FirstName and should match the pattern '^[a-zA-Z][a-zA-Z]*$';</span>
+            </div>
+            <div class="input-field col s6" [class.has-error]="LastName.invalid && LastName.touched">
+                <label>&nbsp;&nbsp;Last Name</label>
+              <input id="box5" type="text" name="LastName" #LastName="ngModel" [(ngModel)]="user.LastName" pattern="^[a-zA-Z][ a-zA-Z]*$" required>
+              
+              <span id="error" class="help-block" *ngIf="LastName.errors?.required && LastName.touched"> Lastname Required</span>
+              <span id="error"class="help-block" *ngIf="LastName.errors?.pattern && LastName.touched">Invalid LastName and should match the pattern '^[a-zA-Z][a-zA-Z]*$';</span>
+            </div>
+          </div>
+          <div class="row">
+              <div class="input-field col s6 center offset-s3">
+                <button  id="btn" [disabled]="!userRegistrationForm.valid" class="btn-large btn-submit" type="submit">Register Me..!</button>
+              </div>
+            </div>
+        </form>
+      <!-- </div> -->
+    <!-- </div> -->
+  
+
+</div>

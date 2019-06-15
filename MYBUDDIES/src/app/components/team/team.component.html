@@ -1,3 +1,61 @@
-<p>
-  team works!
-</p>
+<div class="team-actionbar">
+    <p class="title">TEAM</p>
+</div>
+<div id="slider-container" class="slider-container">
+    <div id="slider">
+        <button id="left" name="left-slider" *ngIf="leftChild > 0"></button>
+        <!-- <button id="right" name="right-slider" *ngIf="rightChild > 0"></button> -->
+    </div>
+
+    <div id="team-card-cntnr" class="team-card-cntnr">
+        <div *ngFor="let teammember of teammembers" class="team-card" (click)="userCardClicked(teammember.email)">
+            <img src="{{teammember.picture}}" alt="John" style="width:42%; padding:15px;">
+            <h3>{{teammember.name}}</h3>
+            <p class="title">{{teammember.email}}</p>
+            <h4>{{teammember.contact}}</h4>
+            <h5><button>{{teammember.department}} - {{teammember.designation}}</button></h5>
+        </div>
+    </div>
+</div>
+
+<div>
+    <p *ngIf=selectedTeammember class="title">Detailed Profile</p>
+    <table *ngIf=selectedTeammember id="teammemberdata">
+        <tr>
+            <td>Name</td>
+            <td>{{selectedTeammember.name}}</td>
+        </tr>
+        <tr>
+            <td>Email</td>
+            <td>{{selectedTeammember.email}}</td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td>{{selectedTeammember.department}}</td>
+        </tr>
+        <tr>
+            <td>Designation</td>
+            <td>{{selectedTeammember.designation}}</td>
+        </tr>
+        <tr>
+            <td>Department</td>
+            <td>{{selectedTeammember.department}}</td>
+        </tr>
+        <tr>
+            <td>Gender</td>
+            <td>{{selectedTeammember.gender}}</td>
+        </tr>
+        <tr>
+            <td>Blood group</td>
+            <td>{{selectedTeammember.booldgroup}}</td>
+        </tr>
+        <tr>
+            <td>Contact Number</td>
+            <td>{{selectedTeammember.contact}}</td>
+        </tr>
+        <tr>
+            <td>Address</td>
+            <td>{{selectedTeammember.address}}</td>
+        </tr>
+    </table>
+</div>

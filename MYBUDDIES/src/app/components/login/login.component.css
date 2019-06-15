@@ -1,0 +1,40 @@
+#opw{
+    background-color:rgb(250, 250, 250,0.8);
+     margin-top: 30px;
+    
+}
+
+#box1,#box2{
+    background-color: rgba(243, 237, 237, 0.822);
+    padding: 5px;
+    /* border-radius: 10px; */
+}
+#btn{
+    
+    border-radius: 10px;
+    padding: 3%; 
+    
+}
+::-webkit-input-placeholder{
+color: dimgray;
+}
+#linkcol{
+    color: black;
+    
+}
+.myclass{
+    border-top: 2px solid #ff9800;
+    box-shadow: 4px 4px 8px 4px rgba(0,0,0,0.2);
+    transition: 0.3s;
+    width: 30%;
+    height: "200px";
+    /* margin: 1.2%; */
+    height: 300px;
+    padding: 3%;
+    text-align: -webkit-center;
+}
+
+.mycontainer{
+    text-align: -webkit-center;
+    padding: 70px;
+}

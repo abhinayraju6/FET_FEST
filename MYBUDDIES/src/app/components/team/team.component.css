@@ -1,0 +1,164 @@
+.team-card-cntnr{
+  display: flex;
+   overflow: hidden;
+   justify-content: flex-start;
+   min-height: 100%;
+    /* box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.2); */
+}
+
+.team-card {
+    box-shadow: 0 0px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    max-height: 310px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    min-width: 210px;
+    margin: 10px;
+    transition: transform 0.5s;
+  }
+  
+  .team-card:nth-child(2n+1){
+    background-color:#ffd382;
+  }
+  .title {
+    color: grey;
+    font-size: 18px;
+  }
+  
+  button {
+    border: none;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: #000;
+    text-align: center;
+    cursor: pointer;
+    width: 100%;
+    font-size: 18px;
+  }
+
+  #slider button{
+    border: solid 1px grey;
+    outline: 0;
+    display: inline-block;
+    padding: 8px;
+    color: white;
+    background-color: white;
+    background-image: url("../../../assets/caretdown24.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 48px;
+    height: 48px;
+    border-radius: 28px;
+    cursor: pointer;
+    box-shadow: #8c8c8c 0px 0px 5px 0px;
+  }
+
+  #slider{
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+    top:55%;
+    width:100%;
+  }
+  
+  #slider button:hover{
+    box-shadow: inset #8c8c8c 0px 0px 2px 0px;
+    opacity: 1; 
+  }
+
+ #right{
+    transform: rotate(-90deg);
+    margin-right:-45px;
+    float: right;
+  }
+
+  #left{
+    transform: rotate(90deg);
+    margin-left:-45px;
+  }
+  a {
+    text-decoration: none;
+    font-size: 22px;
+    color: black;
+  }
+  
+  button:hover, a:hover {
+    opacity: 0.7;
+  }
+
+  .slider-container{
+      display:flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      height: 370px;
+      margin:25px;
+      padding: 0 25px;
+      box-sizing: border-box;
+      box-shadow: 0px 0px 11px 0px rgba(0, 0, 0, 0.2);
+
+  }
+  
+ .title{
+    font-weight: 500;
+    font-size: 1.3em;
+    letter-spacing: -0.03em;
+    color: #F6891F;
+    margin-left: 10px;
+    display: -webkit-inline-box;
+    font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif
+  }
+
+  .team-actionbar{
+    background-color: rgb(236, 236, 236);
+            width:auto;
+            height: 6%;
+            position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  }
+
+ .title{
+    font-weight: 500;
+    font-size: 1.3em;
+    letter-spacing: -0.03em;
+    color: #F6891F;
+    margin-left: 10px;
+    display: -webkit-inline-box;
+    font: 500 20px/32px Roboto,"Helvetica Neue",sans-serif
+  }
+
+  .team-actionbar{
+    background-color: rgb(236, 236, 236);
+            width:auto;
+            height: 6%;
+            position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  }
+
+
+  #teammemberdata {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+  }
+  
+  #teammemberdata td, #teammemberdata th {
+    border: 1px solid #ffeac3;
+    padding: 8px;
+  }
+  
+  #teammemberdata tr:nth-child(even){background-color:#ffeac3;}
+  
+  #teammemberdata tr:hover {background-color: #ffdb98;}
+  
+  #teammemberdata th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4CAF50;
+    color: white;
+  }

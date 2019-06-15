@@ -1,0 +1,29 @@
+<div id="cal-comp">
+    <!-- <div class="cal-top-punch">
+        <div class="cal-punch-hole" *ngFor="let punch of [1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10,1,2,3,4,5,6,7,8,9,10]"></div>
+    </div> -->
+    <div class="cal-comp-page-cntnr">
+        <div [ngClass]="{'cal-comp-page':true,'cal-comp-page-rear':calI == 1}" *ngFor="let calender of calenders, let calI = index">
+            <div class="cal-comp-cntnr">
+                <div class="cal-comp-day" *ngFor="let day of calender.days">
+                    <div class="cal-comp-daytitle">{{day[0]}}</div>
+                    <div [ngClass]="{'cal-comp-date-event-cntnr':true,'comp-event-available':eventsInMonth[date]}"
+                        *ngFor="let date of day.slice(1)">
+                        <div class="cal-comp-date" *ngIf="date < 32">{{date}}</div>
+                        <div class="cal-comp-events" *ngIf="date < 32 && eventsInMonth[date]">
+                            <img class="cal-comp-event-ico" src="{{event}}" alt=""
+                                *ngFor="let event of eventsInMonth[date].ico" />
+                            <div class="cal-comp-event-tooltip"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="cal-month-lbl">{{calender.label}}</div>
+        </div>
+    </div>
+    <div class="cal-flip-cntrl">
+        <button id='cal-flip-up' name="up" (click)="calenderFlipCntrlClick($event)"></button>
+        <button id='cal-flip-down' name="down" (click)="calenderFlipCntrlClick($event)"></button>
+    </div>
+    <div id="cal-page-shutter"></div>
+</div>
